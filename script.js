@@ -8,13 +8,13 @@ const fetchHeader = {
 };
 const container = document.getElementById("container");
 fetch(url, fetchHeader)
-  .then((data) => data.json())
-  .then((res) => {
-    let user = res.users;
+  .then((res) => res.json()) 
+  .then((data) => {
+    let user = data.users;
     console.log(user)
     container.innerHTML = user.map((t) => `
      <div
-            class="card h-[500px] w-[300px] flex flex-col items-center relative bg-[#0a112b] overflow-clip rounded-2xl z-[-2]">
+            class="card h-[500px] w-[300px] flex flex-col items-center relative overflow-clip rounded-2xl z-[-2]">
 
             <div
                 class="h-[200px] bg-[linear-gradient(rgba(0,0,60,0.8),rgba(0,0,20,0.9)),url('imgae.avif')]  bg-contain bg-center rounded-br-[50px] relative rounded-bl-[50px] w-full bg-[#0B192C]">
